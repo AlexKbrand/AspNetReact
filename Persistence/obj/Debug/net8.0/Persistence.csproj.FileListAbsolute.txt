@@ -1,0 +1,15 @@
+C:\demo\Reactivities\Persistence\bin\Debug\net8.0\Persistence.deps.json
+C:\demo\Reactivities\Persistence\bin\Debug\net8.0\Persistence.dll
+C:\demo\Reactivities\Persistence\bin\Debug\net8.0\Persistence.pdb
+C:\demo\Reactivities\Persistence\bin\Debug\net8.0\Domain.dll
+C:\demo\Reactivities\Persistence\bin\Debug\net8.0\Domain.pdb
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.csproj.AssemblyReference.cache
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfoInputs.cache
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.AssemblyInfo.cs
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.csproj.CoreCompileInputs.cache
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persiste.61C28332.Up2Date
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.dll
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\refint\Persistence.dll
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\Persistence.pdb
+C:\demo\Reactivities\Persistence\obj\Debug\net8.0\ref\Persistence.dll
