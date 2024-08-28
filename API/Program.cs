@@ -28,6 +28,18 @@ builder.Services.AddDbContext<DataContext>(opt =>
 });
 
 
+//Добавляется права корс для вызова api через реaкт.
+builder.Services.AddCors(opt =>{
+    opt.AddPolicy("CorsPolicy", policy =>
+    {
+        policy.AllowAnyHeader()
+       .AllowAnyMethod()
+       .WithOrigins("http://localhost:3000");
+       
+    });
+});
+
+
 // Создается экземпляр приложения с учетом всех ранее настроенных сервисов и компонентов.
 var app = builder.Build();
 
@@ -41,6 +53,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+// Добавляется Cors 
+app.UseCors("CorsPolicy");
 
 // Добавляется middleware для обработки авторизации. 
 // Несмотря на то, что в примере нет настройки аутентификации, 
