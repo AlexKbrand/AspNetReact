@@ -1,6 +1,7 @@
 // Эти строки подключают необходимые пространства имен. 
 // Microsoft.EntityFrameworkCore предоставляет функции для работы с Entity Framework Core, 
 // а Persistence — это пространство имен, где находится контекст данных DataContext.
+using Application.Activities;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -38,6 +39,14 @@ builder.Services.AddCors(opt =>{
        
     });
 });
+
+
+//Добавляется MediatR
+//используется для регистрации MediatR в ASP.NET Core приложении.
+//builder.Services.AddMediatR: Этот метод расширения добавляет MediatR в контейнер зависимостей ASP.NET Core.
+//cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly): Этот конфигуратор указывает MediatR на то, 
+// что он должен зарегистрировать все обработчики команд и запросов, находящиеся в сборке, где определен List.Handler
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));
 
 
 // Создается экземпляр приложения с учетом всех ранее настроенных сервисов и компонентов.
