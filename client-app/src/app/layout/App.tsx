@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./App.css";
+import "./styles.css";
 import { List, Header, ListItem } from "semantic-ui-react";
 
 import axios from "axios";
