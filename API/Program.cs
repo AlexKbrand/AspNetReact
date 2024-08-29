@@ -1,7 +1,7 @@
 // Эти строки подключают необходимые пространства имен. 
 // Microsoft.EntityFrameworkCore предоставляет функции для работы с Entity Framework Core, 
 // а Persistence — это пространство имен, где находится контекст данных DataContext.
-using Application.Activities;
+using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -15,38 +15,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 
-// Эти строки добавляют поддержку Swagger — инструмента для документирования и тестирования API. 
-// AddEndpointsApiExplorer необходим для отображения информации о минимальных API, а AddSwaggerGen генерирует спецификацию OpenAPI для проекта.
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddApplicationServices(builder.Configuration);
 
 
-// Добавляется DataContext (контекст данных) в контейнер зависимостей, который используется для работы с базой данных. 
-// UseSqlite указывает на использование SQLite в качестве базы данных, а строка подключения берется из конфигурации приложения.
-builder.Services.AddDbContext<DataContext>(opt => 
-{
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
-});
-
-
-//Добавляется права корс для вызова api через реaкт.
-builder.Services.AddCors(opt =>{
-    opt.AddPolicy("CorsPolicy", policy =>
-    {
-        policy.AllowAnyHeader()
-       .AllowAnyMethod()
-       .WithOrigins("http://localhost:3000");
-       
-    });
-});
-
-
-//Добавляется MediatR
-//используется для регистрации MediatR в ASP.NET Core приложении.
-//builder.Services.AddMediatR: Этот метод расширения добавляет MediatR в контейнер зависимостей ASP.NET Core.
-//cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly): Этот конфигуратор указывает MediatR на то, 
-// что он должен зарегистрировать все обработчики команд и запросов, находящиеся в сборке, где определен List.Handler
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(List.Handler).Assembly));
 
 
 // Создается экземпляр приложения с учетом всех ранее настроенных сервисов и компонентов.
